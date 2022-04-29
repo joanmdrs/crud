@@ -22,6 +22,23 @@ app.post("/", async (req: Request, res: Response) => {
 });
 
 
+app.get("/", async (req: Request, res: Response) => {
+    const clients = await prisma.client.findMany();
+    res.json(clients);
+
+});
+
+app.get("/byId/:id", async(req: Request, res: Response) => {
+    const id = req.params.id;
+    const client = await prisma.client.findUnique({
+        where: {
+            id: Number(id)
+        },
+    });
+    res.json(client);
+})
+
+
 
 app.listen(3001, () => {
     console.log("SERVER RUNNING ON PORT 3001");
