@@ -36,9 +36,24 @@ app.get("/byId/:id", async(req: Request, res: Response) => {
         },
     });
     res.json(client);
-})
+});
 
-
+app.put("/", async (req: Request, res: Response) => {
+    const { id, name, age, birth_date, phone, email } = req.body;
+    const updateClient = await prisma.client.update({
+        where :{
+            id: id
+        },
+        data:{
+            name: name,
+            age: age,
+            birth_date: birth_date,
+            phone: phone,
+            email: email
+        },
+    });
+    res.json(updateClient);
+});
 
 app.listen(3001, () => {
     console.log("SERVER RUNNING ON PORT 3001");
