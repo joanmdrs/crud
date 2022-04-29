@@ -55,6 +55,16 @@ app.put("/", async (req: Request, res: Response) => {
     res.json(updateClient);
 });
 
+app.delete("/:id", async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const deleteUser = await prisma.client.delete({
+        where: {
+            id: Number(id),
+        },
+    });
+    res.json(deleteUser)
+});
+
 app.listen(3001, () => {
     console.log("SERVER RUNNING ON PORT 3001");
 })
