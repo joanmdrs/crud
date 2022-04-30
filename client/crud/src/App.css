@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form {
+  margin-top: 50px;
+  display: flex;
+  width: 25vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  padding: 30px 10px;
+}
+
+.form .title {
+  margin-bottom: 10px;
+}
+
+.form .field {
+  width: 60%;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  text-indent: 20px;
+  outline: none;
+  padding: 5px;
+}
+
+.form .birth_date {
+  text-indent: 10px;
+}
+.form .button {
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  color: #fff;
+  background-color: rgb(137, 163, 224);
+  cursor: pointer;
+  transition: 1s;
+}
+
+.form .button:hover {
+  background-color: aquamarine;
+}
