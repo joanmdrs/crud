@@ -6,7 +6,7 @@ app.use(express.json());
 
 const prisma = new PrismaClient();
 
-app.post("/", async (req: Request, res: Response) => {
+app.post("/register", async (req: Request, res: Response) => {
     const { name, age, birth_date, phone, email } = req.body;
     const client = await prisma.client.create({
         data:{
@@ -18,7 +18,7 @@ app.post("/", async (req: Request, res: Response) => {
         },
     });
     res.json(client);
-
+  
 });
 
 

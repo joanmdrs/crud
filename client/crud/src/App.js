@@ -1,10 +1,11 @@
 import './App.css';
 import React, {useState} from "react"
+import Axios from 'axios'
+
 
 function App() {
 
   const [values, setValues] = useState();
-  console.log(values);
   const handleChangeValues = (value) => {
     setValues((prevValue) => ({
       ...prevValue,
@@ -17,7 +18,15 @@ function App() {
   }
 
   const handleClickButton = () => {
-    console.log(values)
+    Axios.post("http://localhost:3001/register", {
+      name: values.name,
+      birth_date: values.birth_date,
+      age: values.age,
+      phone: values.phone,
+      email: values.email
+    }).then((response) => {
+      console.log(response);
+    });
   }
   return (
     <div className="container">
